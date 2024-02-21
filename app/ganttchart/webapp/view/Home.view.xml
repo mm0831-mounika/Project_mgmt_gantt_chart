@@ -1,0 +1,73 @@
+<mvc:View controllerName="ganttchart.controller.Home"
+    xmlns:mvc="sap.ui.core.mvc" 
+    xmlns:l="sap.ui.layout"
+    displayBlock="true"
+    xmlns="sap.m">
+    <Page id="page" title="{i18n>title}">
+        <content>
+            <l:VerticalLayout class="centeredLayout" >
+                <VBox class="sapUiSmallMargin customBox">
+                <Label text="Email:" />
+                <Input value="{Login>/email}" placeholder="Enter your email" />
+
+                <Label text="Password:" />
+                <Input value="{Login>/password}" type="Password" placeholder="Enter your password" />
+
+                <Button text="Submit" press="onSubmit" />
+                </VBox>
+            </l:VerticalLayout>
+        </content>
+    </Page>
+
+    <TreeTable
+        id="treeTable"
+        selectionMode="Single"
+        enableColumnReordering="false"
+        expandFirstLevel="false"
+        rows="{
+            path : '/Nodes',
+            parameters : {
+                countMode: 'Inline',
+                treeAnnotationProperties : {
+                    hierarchyLevelFor : 'HierarchyLevel',
+                    hierarchyNodeFor : 'NodeID',
+                    hierarchyParentNodeFor : 'ParentNodeID',
+                    hierarchyDrillStateFor : 'DrillState'
+                }
+            }
+        }">
+
+        <columns>
+
+            <Column>
+                <m:Label text="Description"/>
+                <template>
+                    <m:Text text="{Description}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="HierarchyLevel"/>
+                <template>
+                    <m:Text text="{HierarchyLevel}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="NodeID"/>
+                <template>
+                    <m:Text text="{NodeID}" wrapping="false" />
+                </template>
+            </Column>
+
+            <Column>
+                <m:Label text="ParentNodeID"/>
+                <template>
+                    <m:Text text="{ParentNodeID}" wrapping="false" />
+                </template>
+            </Column>
+
+        </columns>
+
+    </TreeTable>
+</mvc:View>

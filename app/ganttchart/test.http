@@ -1,0 +1,58 @@
+post http://localhost:4004/odata/v4/catalog/Employee
+Content-Type: application/json
+
+ {
+      "Employee_Name": "Nandini",
+       "Employee_Mail":"Nandini@gmail.com",
+       "Employee_Role":"Developer", 
+       "Manager_Id":"eb6c3564-b595-4e4b-a615-4c518ddddfaa"  
+
+}
+
+###
+
+patch http://localhost:4004/odata/v4/catalog/Employee/43f0fece-691c-4bec-ad15-eaba0249a256
+Content-Type: application/json
+
+ {
+    "Employee_Pwd":"123"
+ }
+###
+
+patch http://localhost:4004/odata/v4/catalog/Task/6876c274-6074-4275-8dbb-a8bb40aa8f8e
+Content-Type: application/json
+
+{
+      "Task_Level":2
+}
+
+###
+
+
+post http://localhost:4004/odata/v4/catalog/Project
+Content-Type: application/json
+
+ {
+      
+       "Description":"online book order",
+       "Project_Start_Date":"2024-02-19",
+       "Project_End_Date":"2024-02-28",
+       "Owner_Id":"eb6c3564-b595-4e4b-a615-4c518ddddfaa"
+}
+###
+post http://localhost:4004/odata/v4/catalog/Task
+Content-Type: application/json
+
+ {
+      
+       
+       "Task_Name":"Reqirement_phase1",
+       "Task_Start_Date":"2024-02-20",
+       "Task_End_Date":"2024-02-21",
+       "Task_Status":12,
+       "Employee_Id":"43befda3-ae99-4fe5-b4b1-20f13de4fff5",
+       "Parent_Task_Id":"3bf2f90c-cb2b-4deb-924f-619bad3d0c6d",
+       "Project_Id":"85d6dbe3-e75f-40e8-87cd-aeaafad1343b"    
+}
+
+###
